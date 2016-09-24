@@ -15,7 +15,33 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
+            /**
+             * Initialize Sonata bundle
+             */
+            // These are the other bundles the SonataAdminBundle relies on
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+
+            new Sonata\PageBundle\SonataPageBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
+            new Sonata\CacheBundle\SonataCacheBundle(),
+            new Sonata\NotificationBundle\SonataNotificationBundle(),
+
+            // And finally, the storage and SonataAdminBundle
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+
             new AppBundle\AppBundle(),
+            new Application\CoreBundle\ApplicationCoreBundle(),
+            new Application\Sonata\PageBundle\ApplicationSonataPageBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

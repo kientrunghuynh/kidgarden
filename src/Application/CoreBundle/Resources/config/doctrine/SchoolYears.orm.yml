@@ -1,0 +1,21 @@
+Application\CoreBundle\Entity\SchoolYears:
+    type: entity
+    table: school_years
+    repositoryClass: Application\CoreBundle\Repository\SchoolYearsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        startYear:
+            type: datetime
+            column: start_year
+        endYear:
+            type: datetime
+            column: end_year
+    lifecycleCallbacks: {  }
